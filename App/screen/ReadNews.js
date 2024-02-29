@@ -22,7 +22,7 @@ export default function ReadNews() {
   }
   return (
     <ScrollView style = {{backgroundColor:Color.white,flex:1}}>
-      <View style = {{marginTop:16,marginBottom:10,display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+      <View style = {{marginTop:40,marginBottom:10,display:'flex',flexDirection:'row',marginRight:16,marginLeft:16,justifyContent:'space-between'}}>
         <TouchableOpacity onPress={()=>navigation.goBack()}>
         <Ionicons name="arrow-back-circle" size={40} color="black" />
         </TouchableOpacity>
@@ -30,13 +30,13 @@ export default function ReadNews() {
         <FontAwesome6 name="share-square" size={26} color="black" />
         </TouchableOpacity>
       </View>
-       <Image source={ {uri:news.urlToImage}} style={{width:'100',height:300,borderRadius:15}}/>
-       <Text style= {{ marginTop:10,fontSize:22,fontWeight:'bold'}}>{news.title}</Text>
-       <Text style = {{marginTop:10,color:Color.primary,fontSize:16}}>{news.source.name}</Text>
-       <Text style= {{ marginTop:10,fontSize:18,color:Color.gray,lineHeight:30
+       <Image source={ {uri:news.urlToImage}} style={{width:'100',height:300,borderRadius:15,marginLeft:16,marginRight:16}}/>
+       <Text style= {{ marginTop:10,fontSize:22,fontWeight:'bold',marginLeft:16,marginLeft:16}}>{news.title}</Text>
+       <Text style = {{marginTop:10,color:Color.primary,fontSize:16,marginLeft:16}}>{news.source.name}</Text>
+       <Text style= {{ marginTop:10,fontSize:18,color:Color.gray,lineHeight:30,marginLeft:16,marginRight:16,
       }}>{news.description}</Text>
        <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(news.url)}>
-       <Text style = {{marginTop:10,color:Color.primary,fontSize:16,fontWeight:'bold'}}>Read More</Text>
+       <Text style = {{marginTop:10,color:Color.primary,fontSize:16,fontWeight:'bold',marginLeft:16}}>Read More</Text>
        </TouchableOpacity>
     </ScrollView>
   )

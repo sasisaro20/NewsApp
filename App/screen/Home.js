@@ -2,18 +2,18 @@ import { View, Text ,StyleSheet, ScrollView, ActivityIndicator, Dimensions} from
 import React, { useEffect, useState } from 'react'
 import CategoryTextSlider from '../Components/Home/CategoryTextSlider'
 import Color from '../Shared/Color'
-import { Ionicons } from '@expo/vector-icons';
 import TopHeadlineSlider from '../Components/Home/TopHeadlineSlider';
 import Headlinelist from '../Components/Home/Headlinelist';
 import GlobalApi from '../Service/GlobalApi';
+
 
 export default function Home() {
   const [newsList ,setNewsList]=useState([])
   const [loading ,setLoading]=useState(true)
 
   useEffect(()=>{
-      // getTopHeadline  
-      getNewsByCategory('latest')
+      // getTopHeadline 
+      getNewsByCategory('Latest News') 
   },[])
 
   const getNewsByCategory= async(category) =>{
@@ -28,6 +28,8 @@ export default function Home() {
       setNewsList(result.articles)
   }
 
+  
+
   return (
     <ScrollView style={{backgroundColor:Color.white}}> 
     
@@ -35,7 +37,6 @@ export default function Home() {
        alignItems:'center',
        justifyContent:'space-between' }}>
       <Text style={style.appName}>NewsHub</Text>
-      <Ionicons name="notifications-outline" size={24} color="black" />
       </View>
         
         {/* category List */}
@@ -48,7 +49,9 @@ export default function Home() {
         <TopHeadlineSlider newsList={newsList}/>
         {/* Head Line List */}
         <Headlinelist newsList={newsList}/>
+
         </View>
+     
 }    
     </ScrollView>
   )
@@ -56,8 +59,15 @@ export default function Home() {
 
 const style = StyleSheet.create({
     appName:{
-      fontSize:24,
+      fontSize:25,
       fontWeight:'bold',
-      color: Color.primary
+      color: Color.primary,
+      backgroundColor:'whitesmoke',
+      borderWidth:2,
+      borderColor:'#99ebff',
+      borderRadius:20,
+      marginTop:40,
+      padding:10,
+      marginLeft:10
     }
 })
